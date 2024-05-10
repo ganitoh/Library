@@ -16,7 +16,7 @@ namespace Library.Persistance.Services
             services.AddScoped<IAuthorRepository, AuthorRepository>();
         }
 
-        public static void AddPostgreSql(IServiceCollection services, string connectionString)
+        public static void AddPostgreSql(this IServiceCollection services, string connectionString)
         {
             services.AddDbContext<ApplicationContext>(
                 options => options.UseNpgsql(connectionString));
