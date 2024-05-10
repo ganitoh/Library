@@ -29,7 +29,7 @@ namespace Library.Persistance.Services.Repositories.Emplementation
             var book = await _context.Books.AsNoTracking().FirstOrDefaultAsync(b=>b.Id == id);
 
             if (book is null)
-                throw new EntityNotFoundException("bool not found");
+                throw new EntityNotFoundException("book not found");
 
             return book;
             
@@ -42,7 +42,7 @@ namespace Library.Persistance.Services.Repositories.Emplementation
             var book = await _context.Books.FirstOrDefaultAsync(b => b.Id == id);
 
             if (book is null)
-                throw new EntityNotFoundException("bool not found");
+                throw new EntityNotFoundException("book not found");
 
            _context.Books.Remove(book);
             await _context.SaveChangesAsync();
