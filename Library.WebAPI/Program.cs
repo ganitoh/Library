@@ -44,7 +44,7 @@ app.UseStaticFiles(new StaticFileOptions()
     }
 
 });
-app.MapControllerRoute(name: "default", pattern: "{controller}/{action}/{id?}");
+app.MapControllerRoute(name: "default", pattern: "{controller}/{action}");
 //app.MapControllerRoute(name: "admin", pattern: "{area:exists}/{controller=Home}/{action=Index}/{id?}");
 
 

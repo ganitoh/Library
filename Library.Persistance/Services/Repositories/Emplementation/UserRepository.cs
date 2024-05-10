@@ -47,5 +47,17 @@ namespace Library.Persistance.Services.Repositories.Emplementation
             _context.Users.Remove(user);
             await _context.SaveChangesAsync();
         }
+
+        public async Task<User> GetEntityAsync(string login)
+        {
+            var user = await _context.Users
+                .AsNoTracking()
+                .FirstOrDefaultAsync(u => u.Login == login);
+
+            if (user is null)
+                throw new EntityNotFoundException("user not found");
+
+            return user;
+        }
     }
 }
