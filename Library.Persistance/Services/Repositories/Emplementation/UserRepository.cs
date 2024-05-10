@@ -1,9 +1,9 @@
 ﻿using Library.Domain.Models;
 using Library.Persistance.Exception;
-using Library.Persistance.Services.Repositories.Emplementation;
+using Library.Persistance.Services.Repositories.Abstraction;
 using Microsoft.EntityFrameworkCore;
 
-namespace Library.Persistance.Services.Repositories.Abstraction
+namespace Library.Persistance.Services.Repositories.Emplementation
 {
     public class UserRepository : IUserRepository
     {
@@ -26,7 +26,7 @@ namespace Library.Persistance.Services.Repositories.Abstraction
 
         public async Task<User> GetEntityAsync(Guid id)
         {
-            var user = await _context.Users.AsNoTracking().FirstOrDefaultAsync(u=>u.Id == id);
+            var user = await _context.Users.AsNoTracking().FirstOrDefaultAsync(u => u.Id == id);
 
             if (user is null)
                 throw new EntityNotFoundException("user not found");
