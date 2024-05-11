@@ -1,5 +1,7 @@
 using Library.Application;
 using Library.Persistance.Services;
+using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.Extensions.FileProviders;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -14,6 +16,8 @@ services.AddPostgreSql(
     configuraion["ConnecitonStrring:PostgreSQl"]!);
 services.AddApplicationServices();
 services.AddPersistanceServices();
+services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme);
+services.AddAuthorization();
 
 #endregion
 
@@ -27,6 +31,8 @@ if (builder.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
+app.UseAuthentication();
+app.UseAuthorization();
 app.UseStaticFiles();
 app.UseDefaultFiles(new DefaultFilesOptions()
 {

@@ -19,8 +19,4 @@
     <ProjectReference Include="..\Library.Persistance\Library.Persistance.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Common\Abstraction\ApplicationServices\" />
-  </ItemGroup>
-
 </Project>
