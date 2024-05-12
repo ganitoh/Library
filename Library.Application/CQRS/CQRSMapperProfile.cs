@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using Library.Application.CQRS.Authors.Commands.CreateAuthor;
 using Library.Application.CQRS.Books.Commands.CreateBook;
+using Library.Application.CQRS.SuggestedBooks.Command.CreateSuggestedBook;
 using Library.Application.CQRS.Users.Commands.CreateUser;
 using Library.Domain.Models;
 
@@ -14,6 +15,7 @@ namespace Library.Application.CQRS
             CreateMap<CreateBookCommand, Book>();
             CreateMap<CreateUserCommand, User>();
             CreateMap<CreateAuthorCommand, Author>();
+            CreateMap<CreateSuggestedBookComamnd, SuggestedBook>();
         }
     }
 }

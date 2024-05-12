@@ -8,6 +8,7 @@ namespace Library.Persistance.Services.Repositories.Emplementation
         public DbSet<Book> Books { get; set; }
         public DbSet<User> Users { get; set; }
         public DbSet<Author> Authors { get; set; }
+        public DbSet<SuggestedBook> BooksSuggestedUser { get; set; }
         public ApplicationContext(DbContextOptions options) 
             : base(options)
         {

@@ -14,6 +14,8 @@ namespace Library.Persistance.EntityConfiguration
                 .HasMany(a=>a.Books)
                 .WithOne(a=>a.Author)
                 .HasForeignKey(a=>a.AuthorId);
+
+            builder.HasOne(a => a.FullName);
         }
     }
 }
