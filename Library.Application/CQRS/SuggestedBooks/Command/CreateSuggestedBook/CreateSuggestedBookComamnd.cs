@@ -8,7 +8,7 @@ namespace Library.Application.CQRS.SuggestedBooks.Command.CreateSuggestedBook
         public Guid Id { get; set; }
         public string NameBook { get; set; } = string.Empty;
         public FIO? AuthoData { get; set; }
-        public int SuggestByUserid { get; set; }
+        public Guid SuggestByUserid { get; set; }
         public User SuggetsByUser { get; set; } = null!;
 
         public CreateSuggestedBookComamnd()
