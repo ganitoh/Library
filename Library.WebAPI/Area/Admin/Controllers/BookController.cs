@@ -1,10 +1,13 @@
-﻿using MediatR;
+﻿using Library.Application.CQRS.SuggestedBooks.Queries.GetAllSuggestedBook;
+using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 
 namespace Library.WebAPI.Area.Admin.Controllers
 {
     [Route("admin/book")]
+    [Authorize(Roles = "admin")]
     public class BookController : Controller
     {
         private readonly IMediator _mediator;
@@ -17,7 +20,11 @@ namespace Library.WebAPI.Area.Admin.Controllers
         [HttpGet("all-suggest")]
         public async Task<IActionResult> GetAllSuggestedBook()
         {
-            return Ok();
+            var suggestedBooks = await _mediator.Send(new GetAllSuggestedBookRequest());
+            if (suggestedBooks.Count() ==0 )
+                return NotFound();
+
+            return Ok(suggestedBooks);
         }
     }
 }

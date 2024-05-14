@@ -10,7 +10,6 @@ namespace Library.Application.CQRS.SuggestedBooks.Command.CreateSuggestedBook
             RuleFor(b => b.NameBook).MaximumLength(512).NotEmpty();
             RuleFor(b=>b.AuthoData).NotEmpty();
             RuleFor(b=>b.SuggetsByUser).NotEmpty();
-            RuleFor(b=>b.SuggestByUserid).GreaterThan(0);
         }
     }
 }

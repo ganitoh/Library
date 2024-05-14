@@ -52,6 +52,7 @@ namespace Library.Persistance.Services.Repositories.Emplementation
         {
             var user = await _context.Users
                 .AsNoTracking()
+                .Include(u=>u.Role)
                 .FirstOrDefaultAsync(u => u.Login == login);
 
             if (user is null)

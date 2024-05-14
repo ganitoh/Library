@@ -15,7 +15,10 @@ namespace Library.Persistance.EntityConfiguration
                 .WithOne(a=>a.Author)
                 .HasForeignKey(a=>a.AuthorId);
 
-            builder.HasOne(a => a.FullName);
+            builder
+                .HasOne(a => a.FullName)
+                .WithOne(f => f.Author)
+                .HasForeignKey<FIO>(f=>f.AuthorId);
         }
     }
 }

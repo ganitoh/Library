@@ -13,7 +13,7 @@ var configuraion = builder.Configuration;
 services.AddControllers();
 services.AddSwaggerGen();
 services.AddPostgreSql(
-    configuraion["ConnecitonStrring:PostgreSQl"]!);
+    configuraion["ConnectionStrings:PostgreSQl"]!);
 services.AddApplicationServices();
 services.AddPersistanceServices();
 services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme);
@@ -51,7 +51,7 @@ app.UseStaticFiles(new StaticFileOptions()
 
 });
 app.MapControllerRoute(name: "default", pattern: "{controller}/{action}");
-//app.MapControllerRoute(name: "admin", pattern: "{area:exists}/{controller=Home}/{action=Index}/{id?}");
+app.MapControllerRoute(name: "admin", pattern: "{area:exists}/{controller=Home}/{action=Index}/{id?}");
 
 
 #endregion

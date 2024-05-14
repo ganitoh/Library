@@ -35,9 +35,10 @@ namespace Library.WebAPI.Controllers
             var user = await _accountService.Login(
                 new GetUserByLoginRequest(request.Login), request.password);
 
-            Claim[] claims =[
+            Claim[] claims = [
                 new Claim("login", user.Login),
-                new Claim("id", user.Id.ToString())];
+                new Claim("id", user.Id.ToString()),
+                new Claim(ClaimsIdentity.DefaultRoleClaimType, user.Role.Name)];
 
             var claimsIdentity = new ClaimsIdentity(claims);
             var claimPrincipal = new ClaimsPrincipal(claimsIdentity);

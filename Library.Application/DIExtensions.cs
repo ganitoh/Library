@@ -1,4 +1,6 @@
 ﻿using FluentValidation;
+using Library.Application.Common.Services.Application.Abstraction;
+using Library.Application.Common.Services.Application.Emplementation;
 using Library.Application.Common.Services.HasherProvider;
 using Library.Application.CQRS;
 using Library.Application.CQRS.Authors.Commands.CreateAuthor;
@@ -26,6 +28,7 @@ namespace Library.Application
             services.AddScoped<IValidator<CreateAuthorCommand>,CreateAuthorCommandValidation>();
 
             services.AddScoped<IPasswordHash,PasswordHash>();
+            services.AddScoped<IAccountService,AccountService>();
         }
     }
 }

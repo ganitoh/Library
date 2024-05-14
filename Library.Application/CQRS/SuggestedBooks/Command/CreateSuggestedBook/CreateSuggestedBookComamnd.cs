@@ -16,7 +16,7 @@ namespace Library.Application.CQRS.SuggestedBooks.Command.CreateSuggestedBook
             Id = Guid.NewGuid();
         }
 
-        public CreateSuggestedBookComamnd(string nameBook, FIO? authoData, int suggestByUserid, User suggetsByUser)
+        public CreateSuggestedBookComamnd(string nameBook, FIO? authoData, Guid suggestByUserid, User suggetsByUser)
         {
             Id = Guid.NewGuid();
             NameBook = nameBook;
