@@ -1,4 +1,4 @@
-﻿using Library.Application.CQRS.Users.Queries.GetUserByLogin;
+﻿ using Library.Application.CQRS.Users.Queries.GetUserByLogin;
 using Library.Application.Common.Services.Application.Abstraction;
 using Library.Application.CQRS.Users.Commands.CreateUser;
 using Library.WebAPI.Contracts.Request;

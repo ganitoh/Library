@@ -1,6 +1,6 @@
 using Library.Application;
 using Library.Persistance.Services;
-using Microsoft.AspNetCore.Authentication;
+using Library.WebAPI.Middleware;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.Extensions.FileProviders;
 
@@ -31,6 +31,8 @@ if (builder.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
+app.UseMiddleware<CustomExceptionHandlerMiddleware>();
+app.UseHttpsRedirection();
 app.UseAuthentication();
 app.UseAuthorization();
 app.UseStaticFiles();

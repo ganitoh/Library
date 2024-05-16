@@ -1,4 +1,5 @@
 ﻿using Library.Domain.Models;
+using Library.Persistance.EntityConfiguration;
 using Microsoft.EntityFrameworkCore;
 
 namespace Library.Persistance.Services.Repositories.Emplementation
@@ -14,7 +15,17 @@ namespace Library.Persistance.Services.Repositories.Emplementation
         {
             AppContext.SetSwitch("Npgsql.EnableLegacyTimestampBehavior", true);
             AppContext.SetSwitch("Npgsql.DisableDateTimeInfinityConversions", true);
+
+            Database.EnsureDeleted();
             Database.EnsureCreated();
+        }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.ApplyConfiguration(new AuthorConfiguration());
+            modelBuilder.ApplyConfiguration(new UserConfiguration());
+            modelBuilder.ApplyConfiguration(new BookConfiguration());
+            modelBuilder.ApplyConfiguration(new RoleConfiguration());
         }
     }
 }
